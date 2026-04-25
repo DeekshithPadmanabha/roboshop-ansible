@@ -1,7 +1,13 @@
+---
+#====================================================================================================================
+# PLAY: Configure Catalogue Microservice
+#Purpose: Deploys Node.js app and loads initial into MongoDB.
+#====================================================================================================================
 - name: configure catalogue   
-  hosts: catalogue
-  become: yes
+  hosts: catalogue              # Targets the [catalogue] group
+  become: yes                   # Root access required
   tasks:
+   #--- APP SETUP START---
   - name: enable nodejs 20
     ansible.builtin.command: dnf module enable nodejs:20 -y
 
@@ -17,7 +23,8 @@
       home: /app
       shell: /sbin/nologin
       comment: "Roboshop system user"
-
+ 
+  # Clean Deployment Strategy
   - name: delete app directory
     ansible.builtin.file:
       path: /app
