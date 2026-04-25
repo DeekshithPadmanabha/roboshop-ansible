@@ -1,12 +1,14 @@
 ---
-# ansible-playbook -i inventory.ini -e instances=['mongodb', 'catalogue', 'redis', 'user', 'cart', 'shipping', 
-# 'mysql', 'rabbitmq', 'payment', 'frontend']01-roboshop.yaml
+#ansible-playbook -i localhost, -e "instances=['mongodb', 'catalogue', 'redis', 'user', 'cart', 'mysql', 'shipping', 'payment', 'frontend']" 01-roboshop.yaml
+
+# ansible-playbook -i localhost, \ -e '{"instances":["mongodb", "catalogue", "redis", "user", "cart", "shipping", 
+# "mysql", "rabbitmq", "payment", "frontend"]}' \ 01-roboshop.yaml
 #====================================================================================================================
 # PLAY: Create EC2 Instances and Route53 DNS Records
 #Purpose: Automates the AWS infrastructure setup for the RoboShop project
 #====================================================================================================================
 - name: create ec2 instance and route53 records
-  hosts: local 
+  hosts: all 
   connection: local
   vars:
     sg_id: sg-0a697c68c12d16675
