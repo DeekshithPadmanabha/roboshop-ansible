@@ -45,5 +45,5 @@
       remote_src: yes
 
   - name: install dependencies
-    community.general.nmp:
+    community.general.npm:
       path: /app    
