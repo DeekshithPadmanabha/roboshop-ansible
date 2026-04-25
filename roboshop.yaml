@@ -4,6 +4,7 @@
   vars:
     sg_id: sg-0a697c68c12d16675
     ami_id: ami-0220d79f3f480ecf5
+    domain_name: deekshi88s.online
     env: dev
     instances:
     - mongodb
@@ -26,3 +27,14 @@
   - name: print the ec2_output
     ansible.builtin.debug:
       msg: "{{ ec2_output }}"  
+
+  - name: crete route53 records
+    amazon.aws.route53:
+      state: present
+      zone: "{{ domaim_name }}"  
+      record: "{{ item.item }}-{{ env }}.{{ domain_name }}" # mongodb-dev.deekshi88s.online
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].private_ip_address }}"
+      wait: true
+    loop: "{{ ec2_output.results }}"    
