@@ -47,7 +47,7 @@
     when: action == "create"   
   
   # 3. Create private DNS records (internal communication)
-  - name: crete route53 records (private)
+  - name: create route53 records (private)
     amazon.aws.route53:
       state: present
       zone: "{{ domain_name }}"  
@@ -61,7 +61,7 @@
     when: action == "create"    
 
   # 4. Create Public DNS record (ONLY for FRONTEND to be accessible from internet)
-  - name: crete route53 records (public)
+  - name: create route53 records (public)
     amazon.aws.route53:
       state: present
       zone: "{{ domain_name }}"  
