@@ -59,28 +59,39 @@
     ansible.builtin.copy: 
       src: catalogue.service
       dest: /etc/systemd/system/catalogue.service 
- 
-  # ---SCHEMA LOADING START---
+
+  # --- SCHEMA LOADING START ---
   # We need the repo file to know where to download the mongo client
   - name: copy mongo repo
     ansible.builtin.copy:
       src: mongo.repo
-      dest: /etc/yum.repos.d/mongo.repo    
+      dest: /etc/yum.repos.d/mongo.repo
 
-  # Install only client tool (mongosh) to talk to the DB server
-  - name: install mongodb client 
+  # Install ONLY the client tool (mongosh) to talk to the DB server
+  - name: install mongodb client
     ansible.builtin.dnf:
       name: mongodb-mongosh
-      state: present  
+      state: present
 
-  # Check if data exists -1 if 'catalague' DB is missing
-  - name: check products loaded     
-    ansible.builtin.command: mongosh --host "{{ MONGODB_HOST }}" --quiet  --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
+  # Check if data exists. Returns -1 if 'catalogue' DB is missing.
+  - name: check products loaded
+    ansible.builtin.command: mongosh --host "{{ MONGODB_HOST }}" --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
     register: catalogue_output
 
+  # Print output for debugging (optional)
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "{{ catalogue_output }}"
 
-  - name: print output 
-    ansible.builtin.debug: 
-      msg: "{{ catalogue_output }}" 
+  # Only load data if the check returned -1 (DB missing)
+  # Uses 'shell' because of the '<' redirection operator
+  - name: load the products
+    ansible.builtin.shell: mongosh --host "{{ MONGODB_HOST }}" </app/db/master-data.js
+    when: catalogue_output.stdout | int < 0
 
-  
+  # --- APP START ---
+  - name: start catalogue
+    ansible.builtin.service:
+      name: catalogue
+      state: restarted
+      enabled: yes
