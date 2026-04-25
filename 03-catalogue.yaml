@@ -85,9 +85,9 @@
 
   # Only load data if the check returned -1 (DB missing)
   # Uses 'shell' because of the '<' redirection operator
-  - name: load the products
-    ansible.builtin.shell: mongosh --host "{{ MONGODB_HOST }}" </app/db/master-data.js
-    when: catalogue_output.stdout | int < 0
+  #- name: load the products
+  #  ansible.builtin.shell: mongosh --host "{{ MONGODB_HOST }}" </app/db/master-data.js
+  #  when: catalogue_output.stdout | int < 0
 
   # --- APP START ---
   - name: start catalogue
