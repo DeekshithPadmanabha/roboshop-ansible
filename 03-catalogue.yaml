@@ -74,14 +74,14 @@
       state: present
 
   # Check if data exists. Returns -1 if 'catalogue' DB is missing.
-  - name: check products loaded
-    ansible.builtin.command: mongosh --host "{{ MONGODB_HOST }}" --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
-    register: catalogue_output
+  # - name: check products loaded
+  #   ansible.builtin.command: mongosh --host "{{ MONGODB_HOST }}" --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
+  #   register: catalogue_output
 
-  # Print output for debugging (optional)
-  - name: print the output
-    ansible.builtin.debug:
-      msg: "{{ catalogue_output }}"
+  # # Print output for debugging (optional)
+  # - name: print the output
+  #   ansible.builtin.debug:
+  #     msg: "{{ catalogue_output }}"
 
   # Only load data if the check returned -1 (DB missing)
   # Uses 'shell' because of the '<' redirection operator
