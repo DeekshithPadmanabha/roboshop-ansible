@@ -23,6 +23,14 @@
     instances:
     - mongodb
     - catalogue
+    - redis 
+    - user
+    - cart 
+    - mysql 
+    - shipping 
+    - rabbitmq 
+    - payment 
+    - frontend 
   tasks:
   #===================================================================================================================
   # PHASE 1: CREATE INFRASTRUCTURE (Runs only if action == "create")
