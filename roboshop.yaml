@@ -31,7 +31,7 @@
   - name: crete route53 records
     amazon.aws.route53:
       state: present
-      zone: "{{ domaim_name }}"  
+      zone: "{{ domain_name }}"  
       record: "{{ item.item }}-{{ env }}.{{ domain_name }}" # mongodb-dev.deekshi88s.online
       type: A
       ttl: 1
