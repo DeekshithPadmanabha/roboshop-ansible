@@ -5,8 +5,9 @@
 #====================================================================================================================
 - name: configure catalogue   
   hosts: catalogue              # Targets the [catalogue] group
-  become: yes                   # Root access required
-  tasks:
+  become: yes                   ## Root access required
+  
+  tasks:               
    #--- APP SETUP START---
   - name: enable nodejs 20
     ansible.builtin.command: dnf module enable nodejs:20 -y
