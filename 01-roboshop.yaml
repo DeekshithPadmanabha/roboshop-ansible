@@ -1,5 +1,5 @@
 ---
-#ansible-playbook -i localhost, -e "instances=['mongodb', 'catalogue', 'redis', 'user', 'cart', 'mysql', 'shipping', 'payment', 'frontend']" 01-roboshop.yaml
+#ansible-playbook -i localhost, -e "instances=['mongodb', 'catalogue', 'redis', 'user', 'cart', 'mysql', 'shipping', 'rabbitmq', 'payment', 'frontend']" 01-roboshop.yaml
 
 # ansible-playbook -i localhost, \ -e '{"instances":["mongodb", "catalogue", "redis", "user", "cart", "shipping", 
 # "mysql", "rabbitmq", "payment", "frontend"]}' \ 01-roboshop.yaml
