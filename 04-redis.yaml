@@ -1,6 +1,6 @@
 ---
 #============================================================================================================================
-#xPLAY: Configure Redis Server
+#PLAY: Configure Redis Server
 # Purpose: Sets up the in-memory cache used by the Cart microservice.
 #=============================================================================================================================
 - name: redis configure redis server
