@@ -21,6 +21,8 @@
 
     #THE FULL LIST: ALL 10 microservices to be created
     instances:
+    - mongodb
+    - catalogue
     - redis 
     - user
     - cart 
