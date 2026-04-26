@@ -31,5 +31,5 @@
   - name: start and enable mongodb
     ansible.builtin.service:
       name: mongod 
-      state: started            # Starts the services right now         
+      state: restarted            # Starts the services right now         
       enabled: yes              # Configures auto-start on system boot
