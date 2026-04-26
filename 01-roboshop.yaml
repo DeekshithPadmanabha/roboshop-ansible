@@ -8,7 +8,7 @@
 #Purpose: Automates the AWS infrastructure setup for the RoboShop project
 #====================================================================================================================
 - name: create ec2 instance and route53 records
-  hosts: all 
+  hosts: localhost 
   connection: local
   vars:
     sg_id: sg-0a697c68c12d16675
