@@ -1,4 +1,5 @@
 ---
+# ansible-playbook -i inventory.ini 02-mongodb.yaml
 #====================================================================================================================
 # PLAY: Configure MongoDB Database
 #Purpose: Installs and starts the MongoDB service for the RoboShop project.

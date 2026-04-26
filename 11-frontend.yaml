@@ -1,4 +1,5 @@
 ---
+# ansible-playbook -i inventory.ini 11-frontend.yaml
 # ==============================================================================
 # PLAY: Configure Frontend Web Server
 # Purpose: Installs Nginx and deploys the RoboShop UI with Reverse Proxy rules.

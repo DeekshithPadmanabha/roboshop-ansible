@@ -1,4 +1,5 @@
 ---
+# ansible-playbook -i inventory.ini 09-rabbitmq.yaml
 # ==============================================================================
 # PLAY: Configure RabbitMQ Message Broker
 # Purpose: Handles asynchronous messaging between microservices (e.g., Payment).

@@ -1,4 +1,5 @@
 ---
+# ansible-playbook -i inventory.ini 04-redis.yaml
 #============================================================================================================================
 #PLAY: Configure Redis Server
 # Purpose: Sets up the in-memory cache used by the Cart microservice.

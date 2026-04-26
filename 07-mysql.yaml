@@ -1,4 +1,5 @@
 ---
+# ansible-playbook -i inventory.ini 07-mysql.yaml
 # ================================================================================================================
 # PLAY: Configure MySQL Database
 # Purpose: Database for the Shipping microservice.

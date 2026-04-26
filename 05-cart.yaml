@@ -1,4 +1,5 @@
 ---
+# ansible-playbook -i inventory.ini 05-cart.yaml
 #===========================================================================================================
 # PLAY: Configure Cart Microservice (Node.js)
 # Purpose: Deploys the Shopping Cart application logic.

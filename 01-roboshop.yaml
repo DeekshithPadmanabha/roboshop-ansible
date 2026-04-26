@@ -1,4 +1,7 @@
 ---
+#ansible-playbook -i localhost, 01-roboshop.yaml
+#ansible-playbook -i localhost, -e action=destroy 01-roboshop.yaml
+
 #ansible-playbook -i localhost, -e "instances=['mongodb', 'catalogue', 'redis', 'user', 'cart', 'mysql', 'shipping', 'rabbitmq', 'payment', 'frontend']" 01-roboshop.yaml
 
 # ansible-playbook -i localhost, \ -e '{"instances":["mongodb", "catalogue", "redis", "user", "cart", "shipping", 

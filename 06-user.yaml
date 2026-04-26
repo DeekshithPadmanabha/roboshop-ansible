@@ -1,4 +1,5 @@
 ---
+## ansible-playbook -i inventory.ini 06-user.yaml
 # ==============================================================================
 # PLAY: Configure User Microservice
 # Purpose: Manages user profiles.

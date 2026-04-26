@@ -1,4 +1,5 @@
 ---
+# ansible-playbook -i inventory.ini 03-catalogue.yaml
 #====================================================================================================================
 # PLAY: Configure Catalogue Microservice
 #Purpose: Deploys Node.js app and loads initial into MongoDB.

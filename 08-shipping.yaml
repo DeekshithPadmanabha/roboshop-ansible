@@ -1,4 +1,5 @@
 ---
+# ansible-playbook -i inventory.ini 08-shipping.yaml
 # ==============================================================================
 # PLAY: Configure Shipping Microservice (Java)
 # Purpose: Handles shipping logic. Connects to MySQL.
